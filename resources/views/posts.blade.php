@@ -8,14 +8,13 @@
     <title>Blog</title>
 </head>
 <body>
-<h1><a href="/posts/my-first-post">first post</a></h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad adipisci aut commodi consequatur consequuntur cum cumque cupiditate deleniti ea eligendi eos error est eum, excepturi fuga harum impedit incidunt ipsam iusto laboriosam natus non odit perspiciatis quaerat quas quis quod rem sit suscipit tenetur veniam vitae voluptas! Aperiam, sit.</p>
-
-<h1><a href="/posts/my-second-post">second post</a></h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad adipisci aut commodi consequatur consequuntur cum cumque cupiditate deleniti ea eligendi eos error est eum, excepturi fuga harum impedit incidunt ipsam iusto laboriosam natus non odit perspiciatis quaerat quas quis quod rem sit suscipit tenetur veniam vitae voluptas! Aperiam, sit.</p>
-
-<h1><a href="/posts/my-third-post">third post</a></h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad adipisci aut commodi consequatur consequuntur cum cumque cupiditate deleniti ea eligendi eos error est eum, excepturi fuga harum impedit incidunt ipsam iusto laboriosam natus non odit perspiciatis quaerat quas quis quod rem sit suscipit tenetur veniam vitae voluptas! Aperiam, sit.</p>
-
+<?php foreach($posts as $post) : ?>
+<article>
+    <h1><a href="/posts/{{$post->slug}}">{{ $post->title  }}</a></h1>
+    <div>
+        <?= $post->body ?>
+    </div>
+</article>
+<?php endforeach; ?>
 </body>
 </html>
