@@ -1,10 +1,4 @@
-@extends ("layout")
-
-@section("title")
-    <title>my posts</title>
-@endsection
-
-@section("content")
+<x-layout>
 @foreach($posts as $post)
     <article class="{{ $loop->even ? "active" : ""  }}">
         <h1><a href="/posts/{{$post->slug}}">{{ $post->title  }}</a></h1>
@@ -13,4 +7,4 @@
         </div>
     </article>
 @endforeach
-@endsection
+</x-layout>
