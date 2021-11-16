@@ -1,5 +1,9 @@
 @extends ("layout")
 
+@section("title")
+    <title>my posts</title>
+@endsection
+
 @section("content")
 @foreach($posts as $post)
     <article class="{{ $loop->even ? "active" : ""  }}">
