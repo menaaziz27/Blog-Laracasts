@@ -20,9 +20,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{post}', function ($slug) {
-    $post = \App\Models\Post::findOrFail($slug);
-
+Route::get('posts/{post:slug}', function (Post $post) { // laravel behind the scenes Post::find($post)->firstOrFail();
     return view("post", [
         "post" => $post
     ]);
