@@ -11,10 +11,19 @@ class Post extends Model
 
     protected $fillable = ['title', 'excerpt', 'body'];
     protected $guarded = ['id'];
+    protected $with = ["category", "author"];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    // user function => column "user_id"
+    // author function => column "author_id"
+    public function author()
+
+    {
+        return $this->belongsTo(User::class, "user_id");
     }
 
 //    public function getRouteKeyName()
