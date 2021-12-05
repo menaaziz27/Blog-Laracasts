@@ -21,24 +21,29 @@ Route::get('/', function () {
         logger($query->sql, $query->bindings);
     });
     return view('posts', [
-        "posts" => Post::latest()->get()
+        "posts" => Post::latest()->get(),
+        "categories" => Category::all()
     ]);
 });
 
 Route::get('posts/{post:slug}', function (Post $post) { // laravel behind the scenes Post::find($post)->firstOrFail();
     return view("post", [
-        "post" => $post
+        "post" => $post,
+        "categories" => Category::all()
     ]);
 });
 
 Route::get("categories/{category:slug}", function (Category $category) {
    return view("posts", [
-       "posts" => $category->posts
+       "posts" => $category->posts,
+       "currentCategory" => $category,
+       "categories" => Category::all()
    ]);
 });
 
 Route::get("authors/{author:username}", function (\App\Models\User $author) {
     return view("posts", [
-        "posts" => $author->posts
+        "posts" => $author->posts,
+        "categories" => Category::all()
     ]);
 });
